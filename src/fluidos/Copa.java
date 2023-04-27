@@ -13,8 +13,12 @@ public class Copa extends Liquido implements Graduable {
     private Graduable alcohol;
     private Liquido mezcla;
 
-    public Copa(Graduable alcohol, Liquido mezcla, Double litros, String color) {
-        super(litros, color);
+    public Copa(Graduable alcohol, Liquido mezcla) {
+        super(0.0, "l");
+        Liquido l = (Liquido) alcohol;
+        Liquido la = (Liquido) mezcla;
+        super.color = l.color + "-" + la.color;
+        super.litros = l.litros + la.litros;
         this.mezcla = mezcla;
         this.alcohol = alcohol;
     }
@@ -51,5 +55,5 @@ public class Copa extends Liquido implements Graduable {
         }
         return null;
     }
-
+    
 }

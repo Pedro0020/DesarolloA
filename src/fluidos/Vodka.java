@@ -4,8 +4,6 @@
  */
 package fluidos;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -36,7 +34,7 @@ public class Vodka extends Liquido implements Graduable {
     public Copa mezclar(Liquido l) throws NoSePuedeMezclarException {
         Copa c = null;
         if (l instanceof Agua || l instanceof Cola) {
-            c = new Copa(this, l, this.litros + l.litros, l.color + "-" + this.color);
+            c = new Copa(this, l);
         } else {
             throw new NoSePuedeMezclarException();
         }

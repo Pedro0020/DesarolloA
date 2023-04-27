@@ -27,7 +27,8 @@ public class Ron extends Liquido implements Graduable {
     public Copa mezclar(Liquido l) throws NoSePuedeMezclarException {
         Copa c = null;
         if (l instanceof Agua || l instanceof Cola) {
-            c = new Copa(this, l, this.litros + l.litros, l.color + "-" + this.color);
+            c = new Copa(this, l);
+            
         } else {
             throw new NoSePuedeMezclarException();
         }

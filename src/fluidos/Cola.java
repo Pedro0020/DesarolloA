@@ -9,11 +9,11 @@ package fluidos;
  * @author alumno
  */
 public class Cola extends Liquido {
-
+    public static final String COLOR_COCA = "marron";
     private Boolean cafeina;
 
-    public Cola(Double litros, String color, Boolean cafeina) {
-        super(litros, color);
+    public Cola(Double litros, Boolean cafeina) {
+        super(litros, COLOR_COCA);
         this.cafeina = cafeina;
     }
 
