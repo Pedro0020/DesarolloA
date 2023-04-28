@@ -4,11 +4,14 @@
  */
 package fluidos;
 
+import energias.Bebible;
+
 /**
  *
  * @author alumno
  */
-public class Cola extends Liquido {
+public class Cola extends Liquido implements Bebible {
+
     public static final String COLOR_COCA = "marron";
     private Boolean cafeina;
 
@@ -28,6 +31,11 @@ public class Cola extends Liquido {
 
     public void setCafeina(Boolean cafeina) {
         this.cafeina = cafeina;
+    }
+
+    @Override
+    public Integer getEnergia() {
+        return (int) (50 * super.litros);
     }
 
 }

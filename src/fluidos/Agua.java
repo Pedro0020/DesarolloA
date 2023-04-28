@@ -4,11 +4,13 @@
  */
 package fluidos;
 
+import energias.Bebible;
+
 /**
  *
  * @author alumno
  */
-public class Agua extends Liquido {
+public class Agua extends Liquido implements Bebible {
 
     public static final String COLOR_AGUA = "Icoloro";
     public static final Double PUREZA_DEFECTO = 1.0;
@@ -34,6 +36,12 @@ public class Agua extends Liquido {
 
     public void setPureza(Double pureza) {
         this.pureza = pureza;
+    }
+
+    @Override
+    public Integer getEnergia() {
+        return (int) (30 * super.litros);
+
     }
 
 }

@@ -4,11 +4,13 @@
  */
 package fluidos;
 
+import energias.Bebible;
+
 /**
  *
  * @author alumno
  */
-public class Copa extends Liquido implements Graduable {
+public class Copa extends Liquido implements Graduable, Bebible {
 
     private Graduable alcohol;
     private Liquido mezcla;
@@ -55,5 +57,33 @@ public class Copa extends Liquido implements Graduable {
         }
         return null;
     }
-    
+
+    @Override
+    public Integer getEnergia() {
+        if (this.alcohol instanceof Vodka e) {
+            e = (Vodka) this.alcohol;
+            if (this.mezcla instanceof Agua m) {
+                m = (Agua) this.mezcla;
+                return m.getEnergia() + e.getEnergia();
+
+            } else if (this.mezcla instanceof Cola m) {
+                m = (Cola) this.mezcla;
+                return m.getEnergia() + e.getEnergia();
+
+            }
+        } else if (this.alcohol instanceof Ron e) {
+            e = (Ron) this.alcohol;
+            if (this.mezcla instanceof Agua m) {
+                m = (Agua) this.mezcla;
+                return m.getEnergia() + e.getEnergia();
+            } else if (this.mezcla instanceof Cola m) {
+                m = (Cola) this.mezcla;
+                return m.getEnergia() + e.getEnergia();
+
+            }
+        }
+        return null;
+
+    }
+
 }

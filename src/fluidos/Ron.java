@@ -4,11 +4,13 @@
  */
 package fluidos;
 
+import energias.Bebible;
+
 /**
  *
  * @author alumno
  */
-public class Ron extends Liquido implements Graduable {
+public class Ron extends Liquido implements Graduable, Bebible {
 
     public static final String COLOR_RON = "Ambar";
 
@@ -28,7 +30,7 @@ public class Ron extends Liquido implements Graduable {
         Copa c = null;
         if (l instanceof Agua || l instanceof Cola) {
             c = new Copa(this, l);
-            
+
         } else {
             throw new NoSePuedeMezclarException();
         }
@@ -38,6 +40,12 @@ public class Ron extends Liquido implements Graduable {
     @Override
     public Double getGrados() {
         return this.grados;
+    }
+
+    @Override
+    public Integer getEnergia() {
+        int i = (int) ((super.litros * this.grados) - super.litros);
+        return -100 * i;
     }
 
 }
